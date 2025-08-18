@@ -4,29 +4,12 @@ exec tail -n +3 $0
 # menu entries you want to add after this comment.  Be careful not to change
 # the 'exec tail' line above.
 
-## old
-#    menuentry 'minixos' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-e23c76ae-b06d-4a6e-ad42-46b8eedfd7d3' {
-#        recordfail
-#	load_video
-#	gfxmode $linux_gfx_mode
-#	insmod gzio
-#	insmod part_gpt
-#	insmod ext2
-#
-#	echo 'Loading minixos image ...'
-#	multiboot --quirk-modules-after-kernel /boot/bit.elf
-#}
-
-
-
-    menuentry 'bit bootloader' --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-e23c76ae-b06d-4a6e-ad42-46b8eedfd7d3' {
+menuentry 'bit bootloader' --class openeuler --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-e23c76ae-b06d-4a6e-ad42-46b8eedfd7d3' {
 	insmod gzio
 	insmod part_gpt
 	insmod ext2
+	set root='hd0,msdos1'
 
 	echo 'Loading bit bootloader ...'
-	multiboot --quirk-modules-after-kernel /bit-bootloader.elf
-	#	module file name | module tag
-	module /boot/bit.elf bit-os
-	#module /boot/bit-back.elf bit-os-back
+	multiboot --quirk-modules-after-kernel /bootloader.elf
 }
