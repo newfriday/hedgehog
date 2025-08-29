@@ -99,6 +99,6 @@ start.o: start.S
 
 # clean
 clean:
-	rm -f $(OBJ) $(DEPS) $(ARCH_LDSCRIPT) *.elf
+	rm -f $(OBJ) $(DEPS) $(ARCH_LDSCRIPT) *.elf boot_info.d.*
 
 .PHONY: all clean
