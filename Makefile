@@ -64,6 +64,7 @@ OBJ_C := init.o \
          utils/string.o \
          early/early_print.o \
          early/early_console.o \
+         drivers/i8259.o \
          reboot.o \
          boot_info.o
 

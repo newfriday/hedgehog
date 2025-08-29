@@ -3,10 +3,15 @@
 #include "multi_boot.h"
 #include "string.h"
 #include "type.h"
+#include "i8259.h"
 
 void start_kernel(void)
 {
     printf("\nstart kernel ...\n");
+
+    init_8259A();
+
+    printf("init 8259A PIC...\n");
 
     while(1){}
 }

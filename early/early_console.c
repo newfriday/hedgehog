@@ -1,19 +1,9 @@
 #include "early_console.h"
+#include "ioport.h"
 
 static struct spinlock lock;
 static int serial_iobase = 0x3f8;
 static int serial_inited = 0;
-
-static inline uint8_t inb(unsigned long port)
-{
-	unsigned char value;
-	asm volatile("inb %w1, %0" : "=a" (value) : "Nd" ((unsigned short)port));
-	return value;
-}
-static inline void outb(uint8_t value, unsigned long port)
-{
-	asm volatile("outb %b0, %w1" : : "a"(value), "Nd"((unsigned short)port));
-}
 
 static void serial_outb(char ch)
 {
